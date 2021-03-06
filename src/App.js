@@ -1,49 +1,25 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import tvTimeLogo from "assets/tvTimeLogo.jpg";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import HomePage from "pages/HomePage";
+import LandingPage from "pages/LandingPage";
 import "./App.css";
 
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App-header">
         <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/home">
+            <HomePage />
           </Route>
           <Route path="/">
-            <Home />
+            <LandingPage />
           </Route>
         </Switch>
       </div>
     </Router>
   );
-}
-
-function Home() {
-  return (
-    <>
-      <div className="App-header">
-        <img src={tvTimeLogo} className="App-logo" alt="logo" />
-        <p>Esta es la super web page de Manu Genia</p>
-
-        <Link className="App-link" to="/users">
-          Enter Web (or don't, it's a trap!)
-        </Link>
-      </div>
-    </>
-  );
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 
 export default App;
