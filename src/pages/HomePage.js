@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import BackButton from "components/BackButton/BackButton";
+import { useDispatch } from "hooks";
+import { getMovieFeed } from "state/actions/feedActions";
 import "./pages-style.css";
 
-function HomePage() {
+const HomePage = () => {
   /* https://api.themoviedb.org/3/discover/movie?api_key=37b2654d338023c318312c90b5eee0ba&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1 */
+  const getMovies = useDispatch(getMovieFeed);
+
+  useEffect(() => {
+    getMovies({ language: "en-US" });
+  }, [getMovies]);
+
   return (
     <>
       <BackButton />
     </>
   );
-}
+};
 
 export default HomePage;
