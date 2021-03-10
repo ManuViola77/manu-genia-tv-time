@@ -8,7 +8,7 @@ const BackButton = () => {
   const { goBack } = useHistory();
 
   return (
-    <img src={backButton} className="Back-button" alt="back" onClick={goBack} />
+    <img src={backButton} className="back-button" alt="back" onClick={goBack} />
   );
 };
 

@@ -16,3 +16,5 @@ export const applyQueryParams = (url, params = {}, addApiKey = true) => {
   const queryParams = queryString.stringify(parameters);
   return `${url}?${queryParams}`;
 };
+
+export const getImagePath = (url) => `${process.env.REACT_APP_IMAGE_URL}${url}`;
