@@ -1,6 +1,5 @@
 .movies-list-container {
   /* background-color: #663399; */
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
 }

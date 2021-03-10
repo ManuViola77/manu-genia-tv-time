@@ -1,18 +1,48 @@
 .movie-item-container {
   /* background-color: #b779ed; */
-  /*   background-color: red; */
+  /*  background-color: red; */
+  align-items: center;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
   margin: 20px;
-  /*   padding-left: 20px; */
   width: 190px;
 }
 
+.image-badge-container {
+  position: relative;
+}
+
 .poster-image {
-  align-self: center;
-  border-radius: 10px;
-  height: 200px;
-  margin-left: 20px;
+  border-radius: 12px;
+  object-fit: contain;
   width: 150px;
+}
+
+.badge {
+  align-items: center;
+  background-color: #663399;
+  border-style: solid;
+  border-color: #b779ed;
+  border-width: 3px;
+  border-radius: 25px;
+  display: flex;
+  height: 40px;
+  position: absolute;
+  right: -15px;
+  bottom: -15px;
+  width: 40px;
+  flex: 1;
+}
+
+.rate {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+h6 {
+  text-align: center;
 }
 
 .title {
