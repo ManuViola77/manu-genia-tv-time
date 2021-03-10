@@ -1,7 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { max } from "lodash";
 
-import { getMovieFeedFulfilled } from "state/actions/feedActions";
+import {
+  getMovieFeedFulfilled,
+  resetMovieFeed,
+} from "state/actions/feedActions";
 
 const initialState = {
   movies: [],
@@ -12,10 +15,25 @@ const initialState = {
 
 const actionHandlers = {
   [getMovieFeedFulfilled]: (state, { payload }) => {
-    state.movies = payload?.results;
+    switch (payload?.page) {
+      case 1:
+        state.movies = payload?.results;
+        break;
+
+      default:
+        state.movies =
+          payload?.page > state.lastPageFetched
+            ? [...state.movies, ...payload?.results]
+            : state.movies;
+        break;
+    }
     state.lastPageFetched = max([payload?.page, state.lastPageFetched]);
     state.totalPages = payload?.totalPages;
     state.totalResults = payload?.totalResults;
+  },
+
+  [resetMovieFeed]: () => {
+    return initialState;
   },
 };
 

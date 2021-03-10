@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit";
 
 import feedService from "services/feedService";
 import parseError from "utils/parseError";
@@ -11,5 +11,7 @@ export const getMovieFeed = createAsyncThunk("MOVIE_FEED", async (options) => {
     throw parseError(data);
   }
 });
+
+export const resetMovieFeed = createAction("feed/reset");
 
 export const { fulfilled: getMovieFeedFulfilled } = getMovieFeed;
