@@ -18,3 +18,10 @@
 .App-link {
   color: #663399;
 }
+
+.full-poster {
+  object-fit: cover;
+
+  height: 300px;
+  width: 100%;
+}
