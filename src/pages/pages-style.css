@@ -19,9 +19,12 @@
   color: #663399;
 }
 
-.full-poster {
-  object-fit: cover;
-
+.poster {
+  align-self: center;
   height: 300px;
-  width: 100%;
+}
+
+.position-absolute-top {
+  position: absolute;
+  top: 0px;
 }
