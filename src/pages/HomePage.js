@@ -7,6 +7,7 @@ import { FIRST_PAGE } from "constants/common";
 import { useDispatch } from "hooks";
 import { getMovieFeed, resetMovieFeed } from "state/actions/feedActions";
 import "./pages-style.css";
+import isEmpty from "lodash/isEmpty";
 
 const DEFAULT_OPTIONS = {
   language: "en-US",
@@ -19,7 +20,19 @@ const HomePage = () => {
 
   const getMovies = useDispatch(getMovieFeed);
   const resetTheMovieFeed = useDispatch(resetMovieFeed);
-  const movies = useSelector(({ feed: { movies } = {} }) => movies || []);
+  const handleOnPressBack = () => {
+    resetTheMovieFeed();
+    setOptions(DEFAULT_OPTIONS);
+  };
+
+  console.log("options: ", options);
+
+  const { lastPageFetched = FIRST_PAGE, movies = [] } = useSelector(
+    ({ feed: { movies, lastPageFetched } = {} }) =>
+      ({ movies, lastPageFetched } || {})
+  );
+
+  console.log("lastPageFetched: ", lastPageFetched);
 
   const infiniteScroll = useCallback(() => {
     // End of the document reached?
@@ -32,8 +45,9 @@ const HomePage = () => {
         page: options.page + 1,
       };
       setOptions(newOptions);
+      getMovies(newOptions);
     }
-  }, [options]);
+  }, [getMovies, options]);
 
   useEffect(() => {
     window.addEventListener("scroll", infiniteScroll);
@@ -43,19 +57,14 @@ const HomePage = () => {
   }, [infiniteScroll]);
 
   useEffect(() => {
-    getMovies(options);
-  }, [getMovies, options]);
-
-  useEffect(
-    () => () => {
-      resetTheMovieFeed();
-    },
-    [resetTheMovieFeed]
-  );
+    lastPageFetched > options.page &&
+      setOptions({ ...options, page: lastPageFetched });
+    isEmpty(movies) && getMovies(options);
+  }, [getMovies, lastPageFetched, movies, options]);
 
   return (
     <>
-      <BackButton />
+      <BackButton handleOnPressBack={handleOnPressBack} />
       <MoviesList movies={movies} />
     </>
   );

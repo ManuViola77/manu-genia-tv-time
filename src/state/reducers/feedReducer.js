@@ -10,9 +10,9 @@ import {
 
 const initialState = {
   movies: [],
-  lastPageFetched: 0,
-  totalPages: 0,
-  totalResults: 0,
+  lastPageFetched: null,
+  totalPages: null,
+  totalResults: null,
   selectedMovie: {},
 };
 
