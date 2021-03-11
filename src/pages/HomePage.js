@@ -3,13 +3,14 @@ import { useSelector } from "react-redux";
 
 import BackButton from "components/BackButton/BackButton";
 import MoviesList from "components/MoviesList/MoviesList";
+import { FIRST_PAGE } from "constants/common";
 import { useDispatch } from "hooks";
 import { getMovieFeed, resetMovieFeed } from "state/actions/feedActions";
 import "./pages-style.css";
 
 const DEFAULT_OPTIONS = {
   language: "en-US",
-  page: 1,
+  page: FIRST_PAGE,
 };
 
 const HomePage = () => {

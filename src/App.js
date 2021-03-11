@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import HomePage from "pages/HomePage";
 import LandingPage from "pages/LandingPage";
+import MovieDetails from "pages/MovieDetails";
 import "./App.css";
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
         <Switch>
           <Route path="/home">
             <HomePage />
+          </Route>
+          <Route path="/movie/:id">
+            <MovieDetails />
           </Route>
           <Route path="/">
             <LandingPage />

@@ -18,3 +18,6 @@ export const applyQueryParams = (url, params = {}, addApiKey = true) => {
 };
 
 export const getImagePath = (url) => `${process.env.REACT_APP_IMAGE_URL}${url}`;
+
+export const limitTextLength = (text, maxLength) =>
+  text.length > maxLength ? `${text.substring(0, maxLength - 3)}...` : text;

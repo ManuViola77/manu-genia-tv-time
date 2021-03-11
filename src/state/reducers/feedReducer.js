@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { max } from "lodash";
 
+import { FIRST_PAGE } from "constants/common";
 import {
   getMovieFeedFulfilled,
   resetMovieFeed,
@@ -16,7 +17,7 @@ const initialState = {
 const actionHandlers = {
   [getMovieFeedFulfilled]: (state, { payload }) => {
     switch (payload?.page) {
-      case 1:
+      case FIRST_PAGE:
         state.movies = payload?.results;
         break;
 
