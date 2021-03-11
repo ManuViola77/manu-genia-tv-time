@@ -1,3 +1,5 @@
+/* App styles */
+
 .App {
   text-align: center;
 }
@@ -19,12 +21,98 @@
   color: #663399;
 }
 
-.poster {
-  align-self: center;
-  height: 300px;
+/* common styles */
+
+.align-center {
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex: 1;
+}
+
+h4 {
+  text-align: center;
+}
+
+h6 {
+  text-align: center;
+}
+
+.justify-content-center {
+  justify-content: center;
 }
 
 .position-absolute-top {
   position: absolute;
   top: 0px;
+}
+
+.position-relative {
+  position: relative;
+}
+
+/* component styles */
+
+.genre-pill {
+  border-radius: 30px;
+  border-style: solid;
+  border-width: 1;
+  cursor: pointer;
+
+  font-size: 20px;
+
+  margin-left: 20px;
+  padding: 10px 20px;
+
+  text-align: center;
+  vertical-align: middle;
+}
+
+.poster {
+  align-self: center;
+  height: 300px;
+}
+
+.movie-title {
+  cursor: pointer;
+  text-align: center;
+  font-family: monospace;
+  text-decoration-line: underline;
+}
+
+.info-container {
+  padding: 0px 30px;
+}
+
+.details-titles {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.info-text {
+  font-size: 18px;
+}
+
+.imdb-logo {
+  cursor: pointer;
+  width: 100px;
+}
+
+.rate-badge {
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 30px;
+
+  display: flex;
+  flex: 1;
+  align-items: center;
+
+  position: absolute;
+  right: 100px;
+  top: 270px;
+
+  height: 60px;
+  width: 60px;
 }

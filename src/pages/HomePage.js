@@ -21,8 +21,6 @@ const HomePage = () => {
   const resetTheMovieFeed = useDispatch(resetMovieFeed);
   const movies = useSelector(({ feed: { movies } = {} }) => movies || []);
 
-  console.log("movies: ", movies);
-
   const infiniteScroll = useCallback(() => {
     // End of the document reached?
     if (

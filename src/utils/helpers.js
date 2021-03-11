@@ -21,3 +21,12 @@ export const getImagePath = (url) => `${process.env.REACT_APP_IMAGE_URL}${url}`;
 
 export const limitTextLength = (text, maxLength) =>
   text.length > maxLength ? `${text.substring(0, maxLength - 3)}...` : text;
+
+export const openInNewTab = (url) => {
+  const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+  if (newWindow) newWindow.opener = null;
+};
+
+export const openIMDBLink = (url) => {
+  openInNewTab(`${process.env.REACT_APP_IMDB_URL}${url}`);
+};
