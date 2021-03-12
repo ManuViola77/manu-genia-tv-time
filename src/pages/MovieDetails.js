@@ -38,8 +38,6 @@ const MovieDetails = () => {
     posterCompletePath
   );
 
-  console.log("movieDetails: ", movieDetails);
-
   useEffect(() => {
     getTheMovieDetails({ id });
   }, [getTheMovieDetails, id]);

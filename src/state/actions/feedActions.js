@@ -12,6 +12,18 @@ export const getMovieFeed = createAsyncThunk("MOVIE_FEED", async (options) => {
   }
 });
 
+export const getMoviesByGenre = createAsyncThunk(
+  "MOVIES_BY_GENRE",
+  async (options) => {
+    try {
+      const { data } = await feedService.getMoviesByGenre(options);
+      return data;
+    } catch ({ response: { data } }) {
+      throw parseError(data);
+    }
+  }
+);
+
 export const getMovieDetails = createAsyncThunk(
   "MOVIE_DETAILS",
   async (params) => {
@@ -24,7 +36,9 @@ export const getMovieDetails = createAsyncThunk(
   }
 );
 
-export const resetMovieFeed = createAction("feed/reset");
+export const resetMovieFeed = createAction("feedReset");
+export const resetMoviesByGenre = createAction("moviesByGenreReset");
 
 export const { fulfilled: getMovieFeedFulfilled } = getMovieFeed;
 export const { fulfilled: getMovieDetailsFulfilled } = getMovieDetails;
+export const { fulfilled: getMoviesByGenreFulfilled } = getMoviesByGenre;

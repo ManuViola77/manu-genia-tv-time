@@ -7,6 +7,10 @@ class feedService {
     return httpClient.get(applyQueryParams("discover/movie", options));
   }
 
+  static getMoviesByGenre(options) {
+    return httpClient.get(applyQueryParams("discover/movie", options));
+  }
+
   static getMovieDetails({ id, options }) {
     return httpClient.get(applyQueryParams(`movie/${id}`, options));
   }
