@@ -25,14 +25,10 @@ const HomePage = () => {
     setOptions(DEFAULT_OPTIONS);
   };
 
-  console.log("options: ", options);
-
   const { lastPageFetched = FIRST_PAGE, movies = [] } = useSelector(
     ({ feed: { movies, lastPageFetched } = {} }) =>
       ({ movies, lastPageFetched } || {})
   );
-
-  console.log("lastPageFetched: ", lastPageFetched);
 
   const infiniteScroll = useCallback(() => {
     // End of the document reached?
