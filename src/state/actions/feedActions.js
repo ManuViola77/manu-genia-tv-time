@@ -24,7 +24,8 @@ export const getMovieDetails = createAsyncThunk(
   }
 );
 
-export const resetMovieFeed = createAction("feed/reset");
+export const changeFeedFilters = createAction("CHANGE_FEED_FILTERS");
+export const resetMovieFeed = createAction("RESET_FEED");
 
 export const { fulfilled: getMovieFeedFulfilled } = getMovieFeed;
 export const { fulfilled: getMovieDetailsFulfilled } = getMovieDetails;

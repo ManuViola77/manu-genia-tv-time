@@ -31,8 +31,8 @@ const MovieDetails = () => {
     title,
     voteAverage,
   } = movieDetails;
-  const backdropCompletePath = getImagePath(backdropPath);
-  const posterCompletePath = getImagePath(posterPath);
+  const backdropCompletePath = !!backdropPath && getImagePath(backdropPath);
+  const posterCompletePath = !!posterPath && getImagePath(posterPath);
 
   const { data: { darkVibrant, darkMuted, muted } = {} } = usePalette(
     posterCompletePath
@@ -47,7 +47,7 @@ const MovieDetails = () => {
   return (
     <div className="app-header" style={{ backgroundColor: darkVibrant }}>
       <Blur
-        img={backdropCompletePath}
+        img={backdropCompletePath || posterCompletePath}
         blurRadius={20}
         enableStyles
         style={{

@@ -5,8 +5,14 @@ import { FIRST_PAGE } from "constants/common";
 import {
   getMovieFeedFulfilled,
   getMovieDetailsFulfilled,
+  changeFeedFilters,
   resetMovieFeed,
 } from "state/actions/feedActions";
+
+const initialFilters = {
+  language: "en-US",
+  page: FIRST_PAGE,
+};
 
 const initialState = {
   movies: [],
@@ -14,6 +20,7 @@ const initialState = {
   totalPages: null,
   totalResults: null,
   selectedMovie: {},
+  filters: initialFilters,
 };
 
 const actionHandlers = {
@@ -37,6 +44,10 @@ const actionHandlers = {
 
   [getMovieDetailsFulfilled]: (state, { payload }) => {
     state.selectedMovie = payload;
+  },
+
+  [changeFeedFilters]: (state, { payload }) => {
+    state.filters = payload;
   },
 
   [resetMovieFeed]: () => {
