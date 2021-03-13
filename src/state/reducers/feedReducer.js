@@ -37,7 +37,7 @@ const actionHandlers = {
             : state.movies;
         break;
     }
-    state.lastPageFetched = max([payload?.page, state.lastPageFetched]);
+    state.lastPageFetched = payload?.page;
     state.totalPages = payload?.totalPages;
     state.totalResults = payload?.totalResults;
   },
