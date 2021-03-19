@@ -1,5 +1,4 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { max } from "lodash";
 
 import { FIRST_PAGE } from "constants/common";
 import {

@@ -29,8 +29,7 @@ const MovieGenresList = ({ genres }) => {
     <div className="flex-row justify-content-center">
       {genres?.map(({ id, name }) => (
         <div className="genre-pill" onClick={() => handleOnGenreClick(id)}>
-          {" "}
-          {name}{" "}
+          {name}
         </div>
       ))}
     </div>

@@ -52,6 +52,7 @@ const useHomePage = () => {
   return {
     handleOnPressBack,
     movies,
+    options,
   };
 };
 

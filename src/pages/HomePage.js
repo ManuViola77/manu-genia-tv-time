@@ -6,12 +6,12 @@ import useHomePage from "hooks/useHomePage";
 import "./pages-style.css";
 
 const HomePage = () => {
-  const { handleOnPressBack, movies } = useHomePage();
+  const { handleOnPressBack, movies, options } = useHomePage();
 
   return (
     <>
       <BackButton handleOnPressBack={handleOnPressBack} />
-      <MoviesList movies={movies} />
+      <MoviesList movies={movies} filters={options} />
     </>
   );
 };
