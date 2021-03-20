@@ -8,9 +8,11 @@ import {
   changeFeedFilters,
   resetMovieFeed,
 } from "state/actions/feedActions";
+import { getGenres } from "state/actions/genresActions";
 
 const useHomePage = () => {
   /* https://api.themoviedb.org/3/discover/movie?api_key=37b2654d338023c318312c90b5eee0ba&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1 */
+  const getAllGenres = useDispatch(getGenres);
   const getMovies = useDispatch(getMovieFeed);
   const updateFilters = useDispatch(changeFeedFilters);
   const resetTheMovieFeed = useDispatch(resetMovieFeed);
@@ -22,6 +24,7 @@ const useHomePage = () => {
   const { movies = [], filters: options } = useSelector(
     ({ feed: { movies, filters } = {} }) => ({ movies, filters } || {})
   );
+  const genres = useSelector(({ genres: { genres } = {} }) => genres || []);
 
   const infiniteScroll = useCallback(() => {
     // End of the document reached?
@@ -48,6 +51,10 @@ const useHomePage = () => {
   useEffect(() => {
     isEmpty(movies) && getMovies(options);
   }, [getMovies, movies, options]);
+
+  useEffect(() => {
+    isEmpty(genres) && getAllGenres();
+  }, [genres, getAllGenres]);
 
   return {
     handleOnPressBack,

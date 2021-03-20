@@ -8,7 +8,7 @@ const initialState = {
 
 const actionHandlers = {
   [getGenresFulfilled]: (state, { payload }) => {
-    state.genres = payload;
+    state.genres = payload.genres;
   },
 };
 

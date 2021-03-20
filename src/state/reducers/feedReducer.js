@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 
 import { FIRST_PAGE } from "constants/common";
+import { LANGUAGE, PAGE } from "constants/movieFilters";
 import {
   getMovieFeedFulfilled,
   getMovieDetailsFulfilled,
@@ -9,8 +10,8 @@ import {
 } from "state/actions/feedActions";
 
 const initialFilters = {
-  language: "en-US",
-  page: FIRST_PAGE,
+  [LANGUAGE]: "en-US",
+  [PAGE]: FIRST_PAGE,
 };
 
 const initialState = {
